@@ -17,6 +17,10 @@ dependencies {
     implementation 'org.dcm4che:dcm4che-core:5.23.3'
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '7.0'
+}
+
 intellij {
     version = 'LATEST-EAP-SNAPSHOT'
     buildSearchableOptions.enabled = false
