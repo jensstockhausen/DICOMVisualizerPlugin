@@ -1,12 +1,12 @@
 <idea-plugin>
     <id>de.famst.DICOMVisualizerPlugin</id>
     <name>DICOM Visualizer</name>
-    <vendor email="plugin@famst.de" url="http://famst.de">FAMST</vendor>
+    <vendor email="plugin@famst.de" url="https://github.com/jensstockhausen/DICOMVisualizerPlugin">plugin@famst</vendor>
 
     <description><![CDATA[
     Displays the content of DICOM files as a table.<br>
 
-    Use the right mouse menue on DICOM files that are part of your project.
+    Use the right mouse menu on DICOM files that are part of your project.
     The plugin works with all DICOM files
     even if they don't have the .dcm extension.<br>
 

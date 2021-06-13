@@ -19,6 +19,7 @@ dependencies {
 
 intellij {
     version = 'LATEST-EAP-SNAPSHOT'
+    buildSearchableOptions.enabled = false
 }
 
 patchPluginXml {
@@ -26,3 +27,10 @@ patchPluginXml {
     changeNotes = """
       1.0 Initial version<br>"""
 }
+
+/*
+runPluginVerifier {
+    ideVersions []
+    localPaths []
+}
+*/
