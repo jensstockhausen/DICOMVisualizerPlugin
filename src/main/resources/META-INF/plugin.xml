@@ -1,0 +1,53 @@
+<idea-plugin>
+    <id>de.famst.DICOMVisualizerPlugin</id>
+    <name>DICOM Visualizer</name>
+    <vendor email="plugin@famst.de" url="http://famst.de">FAMST</vendor>
+
+    <description><![CDATA[
+    Displays the content of DICOM files as a table.</br>
+
+    A seach field is available reducing the table to matching lines.
+    (matching the strings in in tag, name and value columns).</br>
+
+    By default binary bulk data (e.g. pixel data) is not loaded and displayed.
+    This can be enabled with a checkbox.</br>
+    ]]></description>
+
+
+    <change-notes>
+        Set since version to 2020.2 to be able to use new gradle APIs.
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="211.0"/>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <project-components>
+    </project-components>
+
+    <application-components>
+        <component>
+            <implementation-class>de.famst.idea.plugin.dicom.visualizer.view.DICOMFileEditorProvider</implementation-class>
+        </component>
+    </application-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="DICOM File" implementationClass="de.famst.idea.plugin.dicom.visualizer.model.DICOMFileType" fieldName="INSTANCE" language="" extensions=""/>
+        <fileEditorProvider implementation="de.famst.idea.plugin.dicom.visualizer.view.DICOMFileEditorProvider"/>
+    </extensions>
+
+    <actions>
+        <action id="ViewDICOM"
+                class="de.famst.idea.plugin.dicom.visualizer.actions.DICOMViewerAction"
+                text="View DICOM File"
+                icon="/icons/DICOMFileIcon.png"
+                description="Display DICOM file.">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+
+    </actions>
+</idea-plugin>
