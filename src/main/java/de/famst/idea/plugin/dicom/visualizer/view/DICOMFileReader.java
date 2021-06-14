@@ -61,13 +61,13 @@ public class DICOMFileReader
 
         if (fragments != null)
         {
-            for(int i =0; i<fragments.size(); i++)
+            for (int i = 0; i < fragments.size(); i++)
             {
-                byte[] fragment = (byte[])fragments.get(i);
+                byte[] fragment = (byte[]) fragments.get(i);
                 Vector<Object> row = new Vector<>();
 
                 StringBuilder sb = new StringBuilder(20);
-                for (int j=0; (j<30) && (j<fragment.length); j++)
+                for (int j = 0; (j < 30) && (j < fragment.length); j++)
                 {
                     sb.append(String.format("%d\\", fragment[j]));
                 }
