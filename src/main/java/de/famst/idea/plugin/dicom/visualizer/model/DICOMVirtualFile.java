@@ -8,11 +8,13 @@ import org.jetbrains.annotations.NotNull;
 public class DICOMVirtualFile extends LightVirtualFile
 {
     private final VirtualFile parentFile;
+    private final String filePath;
     private boolean closed = false;
 
     public DICOMVirtualFile(VirtualFile virtualFile)
     {
         parentFile = virtualFile;
+        filePath = virtualFile.getPath();
 
         setFileType(DICOMFileType.INSTANCE);
         setWritable(false);
@@ -24,4 +26,8 @@ public class DICOMVirtualFile extends LightVirtualFile
         return parentFile.getName();
     }
 
+    public String getFilePath()
+    {
+        return filePath;
+    }
 }

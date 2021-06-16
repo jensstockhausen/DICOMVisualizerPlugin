@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'de.famst'
-version '1.0'
+version '1.0.1'
 
 repositories {
     mavenCentral()
@@ -25,7 +25,8 @@ intellij {
 patchPluginXml {
     sinceBuild = "211.0"
     changeNotes = """
-      1.0 Initial version<br>"""
+      - 1.0.0 Initial version<br>
+      - 1.0.1 Fix file access in folders"""
 }
 
 /*

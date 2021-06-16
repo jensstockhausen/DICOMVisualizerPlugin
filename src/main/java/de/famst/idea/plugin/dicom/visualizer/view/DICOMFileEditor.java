@@ -6,6 +6,7 @@ import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
+import com.intellij.testFramework.LightVirtualFile;
 import de.famst.idea.plugin.dicom.visualizer.model.DICOMVirtualFile;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
@@ -21,11 +22,9 @@ public class DICOMFileEditor extends UserDataHolderBase implements FileEditor, D
 
     public DICOMFileEditor(Project project, final DICOMVirtualFile virtualFile)
     {
-        String basePath = project.getBasePath();
-
         this.virtualFile = virtualFile;
-
-        dicomFilePanel = new DICOMFilePanel( basePath + virtualFile.getCanonicalPath());
+        String filePath = virtualFile.getFilePath();
+        dicomFilePanel = new DICOMFilePanel(filePath);
     }
 
     @Override
