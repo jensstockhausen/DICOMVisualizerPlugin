@@ -42,7 +42,7 @@ public class DICOMFilePanel extends JBPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                JBCheckBox cb = (JBCheckBox)e.getSource();
+                JBCheckBox cb = (JBCheckBox) e.getSource();
                 updateContent(filePath, cb.isSelected());
             }
         });

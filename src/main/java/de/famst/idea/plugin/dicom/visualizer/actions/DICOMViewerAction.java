@@ -9,9 +9,9 @@ import com.intellij.openapi.fileEditor.OpenFileDescriptor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import de.famst.idea.plugin.dicom.visualizer.model.DICOMVirtualFile;
+import de.famst.idea.plugin.dicom.visualizer.model.SupportedExtensions;
 import de.famst.idea.plugin.dicom.visualizer.view.DICOMFileEditor;
 import de.famst.idea.plugin.dicom.visualizer.view.DICOMFileEditorProvider;
-import de.famst.idea.plugin.dicom.visualizer.model.SupportedExtensions;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -25,26 +25,19 @@ public class DICOMViewerAction extends AnAction
     {
         Presentation presentation = event.getPresentation();
         Project project = event.getProject();
-        if (project == null) {
+        if (project == null)
+        {
             hideThisAction(presentation);
             return;
         }
-
-        // ToolWindowManager.getInstance(project).getToolWindow("SvgViewer");
-        /*
-        ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow("DICOM Visualizer");
-        if (toolWindow == null) {
-            hideThisAction(presentation);
-            return;
-        }
-        */
 
         VirtualFile file = event.getData(VIRTUAL_FILE);
-        if ((file == null) || (!SupportedExtensions.isSupported(file))) {
+        if ((file == null) || (!SupportedExtensions.isSupported(file)))
+        {
             hideThisAction(presentation);
             return;
         }
-        //presentation.setEnabled(toolWindow.isAvailable());
+
         presentation.setVisible(true);
     }
 
@@ -81,12 +74,7 @@ public class DICOMViewerAction extends AnAction
 
             for (FileEditor fileEditor : editors)
             {
-                if (fileEditor instanceof DICOMFileEditor)
-                {
-                    //fileEditor.getEditorFile().openFile(dicomVirtualFile);
-                    //((DICOMFileEditor) fileEditor).openFile(dicomVirtualFile);
-                }
-                else
+                if (!(fileEditor instanceof DICOMFileEditor))
                 {
                     // TODO: Drop other editors
                     fileEditor.dispose();
@@ -94,8 +82,6 @@ public class DICOMViewerAction extends AnAction
             }
         }
 
-        //ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow("DICOM Visualizer");
-        //toolWindow.activate(viewer);
     }
 
 }
