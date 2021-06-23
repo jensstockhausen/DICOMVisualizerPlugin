@@ -22,4 +22,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew buildPlugin
+    - uses: thepieterdc/intellij-plugin-verifier-action@v1.3.0
+      with:
+        plugin: '/home/runner/work/DICOMVisualizerPlugin/DICOMVisualizerPlugin/build/distributions/DICOMVisualizerPlugin*'
+        versions: |
+          LATEST-EAP-SNAPSHOT
