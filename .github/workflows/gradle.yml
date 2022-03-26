@@ -24,8 +24,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew buildPlugin
     - name: IntelliJ Plugin Verifier
-      uses: thepieterdc/intellij-plugin-verifier-action@1.3.0
+      uses: ChrisCarini/intellij-platform-plugin-verifier-action@v1.2.1
       with:
-        plugin: '/home/runner/work/DICOMVisualizerPlugin/DICOMVisualizerPlugin/build/distributions/DICOMVisualizerPlugin*'
-        versions: |
-          LATEST-EAP-SNAPSHOT
+        plugin-location: './build/distributions/DICOMVisualizerPlugin*'
+        ide-versions: |
+          ideaIU:LATEST-EAP-SNAPSHOT
