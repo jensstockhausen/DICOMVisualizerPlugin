@@ -1,11 +1,11 @@
 package de.famst.idea.plugin.dicom.visualizer.view;
 
 import com.intellij.openapi.fileEditor.FileEditor;
-import com.intellij.openapi.fileEditor.FileEditorLocation;
 import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
+import com.intellij.openapi.vfs.VirtualFile;
 import de.famst.idea.plugin.dicom.visualizer.model.DICOMVirtualFile;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
@@ -21,11 +21,9 @@ public class DICOMFileEditor extends UserDataHolderBase implements FileEditor, D
 
     public DICOMFileEditor(Project project, final DICOMVirtualFile virtualFile)
     {
-        String basePath = project.getBasePath();
-
         this.virtualFile = virtualFile;
 
-        dicomFilePanel = new DICOMFilePanel( basePath + virtualFile.getCanonicalPath());
+        dicomFilePanel = new DICOMFilePanel( this.virtualFile.getAbsolutePath());
     }
 
     @Override
@@ -52,6 +50,12 @@ public class DICOMFileEditor extends UserDataHolderBase implements FileEditor, D
     }
 
     @Override
+    public VirtualFile getFile()
+    {
+        return virtualFile;
+    }
+
+    @Override
     public boolean isModified()
     {
         return false;
@@ -71,12 +75,6 @@ public class DICOMFileEditor extends UserDataHolderBase implements FileEditor, D
     @Override
     public void removePropertyChangeListener(@NotNull PropertyChangeListener listener)
     {
-    }
-
-    @Override
-    public @Nullable FileEditorLocation getCurrentLocation()
-    {
-        return null;
     }
 
     @Override

@@ -43,6 +43,7 @@ public class DICOMFileReader
         }
         catch (IOException e)
         {
+            System.out.println(e);
         }
 
         addSeparator("FileMetaInformation", data);
@@ -76,7 +77,7 @@ public class DICOMFileReader
                 row.add("");
                 row.add("  Fragment " + i);
                 row.add("bytes[]");
-                row.add("    " + sb.toString() + "...");
+                row.add("    " + sb + "...");
 
                 data.addRow(row);
             }

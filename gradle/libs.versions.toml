@@ -1,0 +1,15 @@
+[versions]
+dcm4che= "5.23.3"
+
+# plugins
+kotlin = "1.9.23"
+changelog = "2.2.0"
+gradleIntelliJPlugin = "1.17.2"
+
+[libraries]
+dcm4che = { group = "org.dcm4che", name = "dcm4che-core", version.ref = "dcm4che" }
+
+[plugins]
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
+gradleIntelliJPlugin = { id = "org.jetbrains.intellij", version.ref = "gradleIntelliJPlugin" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

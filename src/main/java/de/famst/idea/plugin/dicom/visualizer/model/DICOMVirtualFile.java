@@ -8,14 +8,21 @@ import org.jetbrains.annotations.NotNull;
 public class DICOMVirtualFile extends LightVirtualFile
 {
     private final VirtualFile parentFile;
-    private boolean closed = false;
+
+    private final String absolutePath;
 
     public DICOMVirtualFile(VirtualFile virtualFile)
     {
         parentFile = virtualFile;
+        absolutePath = virtualFile.getPath();
 
         setFileType(DICOMFileType.INSTANCE);
         setWritable(false);
+    }
+
+    public String getAbsolutePath()
+    {
+        return absolutePath;
     }
 
     @Override

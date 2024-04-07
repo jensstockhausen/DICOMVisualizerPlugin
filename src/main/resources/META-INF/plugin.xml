@@ -1,36 +1,13 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>de.famst.DICOMVisualizerPlugin</id>
     <name>DICOM Visualizer</name>
-    <vendor email="plugin@famst.de" url="https://github.com/jensstockhausen/DICOMVisualizerPlugin">plugin@famst</vendor>
+    <vendor>plugin@famst</vendor>
 
-    <description><![CDATA[
-    Displays the content of DICOM files as a table.<br>
-
-    Use the right mouse menu on DICOM files that are part of your project.
-    The plugin works with all DICOM files
-    even if they don't have the .dcm extension.<br>
-
-    A search field is available.
-
-    By default binary bulk data (e.g. pixel data) is not loaded and displayed.
-    This can be enabled with a checkbox.</br>
-    ]]></description>
-
-
-    <change-notes>
-        Set since version to 2020.2 to be able to use new gradle APIs.
-    </change-notes>
-
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="211.0"/>
-
-    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
-         on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
 
-    <project-components>
-    </project-components>
+    <!-- <resource-bundle>messages.MyBundle</resource-bundle> -->
 
     <application-components>
         <component>
@@ -51,6 +28,7 @@
                 description="Display DICOM file.">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
         </action>
-
     </actions>
+
 </idea-plugin>
+
