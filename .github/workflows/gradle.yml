@@ -67,6 +67,14 @@ jobs:
       - name: Build plugin
         run: ./gradlew buildPlugin
 
+      # verify compatibility
+      - name: IntelliJ Plugin Verifier
+        uses: ChrisCarini/intellij-platform-plugin-verifier-action@v1.2.1
+        with:
+          plugin-location: './build/distributions/DICOMVisualizerPlugin*'
+          ide-versions: |
+            ideaIU:LATEST-EAP-SNAPSHOT
+
       # Prepare plugin archive content for creating artifact
       - name: Prepare Plugin Artifact
         id: artifact
